@@ -1,0 +1,28 @@
+# POST http://localhost:3000/signup
+# Content-Type: application/json
+
+# {
+#     "fullname": "john",
+#     "email": "john@gmail.com",
+#     "password": "John@123"
+# }
+
+
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZmZhZjJhMDc0NWQzMDk5OTVlMjY0ZCIsImlhdCI6MTc0NDgwOTc3MH0.b5VQZE8p26qbXFxcoPbPFj8OcaR4Nzg_fLbor4Ct66Q
+
+# POST http://localhost:3000/get-blog
+# Content-Type: application/json
+
+# {
+#     "blog_id" : "Lskdaiovhsbsij-bxvjdnv-kds-bfjdbflscxsdvfsv-sdvofjhgew-9ifvjgFBx6ySq5zX-ME-2_k_vf"
+# }
+
+
+
+POST http://localhost:3000/get-profile
+Content-Type: application/json
+
+{
+    "username" : "john"
+}
