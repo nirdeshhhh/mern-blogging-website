@@ -1,0 +1,6 @@
+let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; // regex for email
+let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/; // regex for password
+
+
+
+mongodb+srv://nirdeshhhh04:Bu@#1534@reactjs-blogging-websit.fzs9q.mongodb.net/?retryWrites=true&w=majority&appName=reactjs-blogging-website
