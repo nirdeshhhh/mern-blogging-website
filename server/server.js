@@ -36,18 +36,22 @@ server.use(cors({
 server.use(express.json());
 
 
-
-// MongoDB Connection
+// MongoDB Connection + Start Server ONLY after DB connects
 mongoose.connect(process.env.DB_LOCATION, {
-  useNewUrlParser: true, 
-  useUnifiedTopology: true, 
-  autoIndex: true,       
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  autoIndex: true,
 })
-.then(() => console.log('MongoDB connected successfully'))
-.catch(err => {
-  console.error('MongoDB connection error:', err.message);  
-});
+.then(() => {
+  console.log("MongoDB connected successfully");
 
+  server.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server is running on ${PORT}`);
+  });
+})
+.catch(err => {
+  console.error("MongoDB connection error:", err.message);
+});
 
 
 
@@ -616,10 +620,4 @@ server.post("/like-blog", verifyJWT, (req, res) => {
 // Test Route
 server.get("/", (req, res) => {
   res.send("Welcome to the Backend API!");
-});
-
-
-// Start Server
-server.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server is running on ${PORT}`);
 });
