@@ -39,14 +39,19 @@ server.use(express.json());
 
 // MongoDB Connection
 mongoose.connect(process.env.DB_LOCATION, {
-  useNewUrlParser: true, 
-  useUnifiedTopology: true, 
-  autoIndex: true,       
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  autoIndex: true,
 })
-.then(() => console.log('MongoDB connected successfully'))
+.then(() => {
+  console.log("MongoDB connected successfully");
+
+  server.listen(PORT, () => {
+    console.log(`Server is running on ${PORT}`);
+  });
+})
 .catch(err => {
-  console.error('MongoDB connection error:', err.message);  
-  process.exit(1); 
+  console.error("MongoDB connection error:", err.message);
 });
 
 
