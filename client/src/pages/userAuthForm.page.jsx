@@ -25,7 +25,6 @@ const UserAuthForm = ({ type }) => {
             const { data } = await axios.post(
                 import.meta.env.VITE_SERVER_DOMAIN + serverRoute,
                 formData,
-                { withCredentials: true } // Ensures cookies/session handling
             );
     
             console.log("Response received:", data);
