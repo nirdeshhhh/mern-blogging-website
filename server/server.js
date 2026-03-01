@@ -28,14 +28,12 @@ const PORT = process.env.PORT || 3000;
 // });
 
 // Middlewares
+import cors from "cors";
+
 server.use(cors({
-  origin: [
-    "https://mern-blogging-website-production-10f9.up.railway.app",
-    "http://mern-blogging-website-production-10f9.up.railway.app"
-  ],
+  origin: "https://mern-blogging-website-production-10f9.up.railway.app",
   credentials: true
 }));
-
 server.use(express.json());
 
 
