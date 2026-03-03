@@ -34,6 +34,9 @@ server.use(cors({
   credentials: true
 }));
 
+
+server.use(express.json()); 
+
 // MongoDB Connection + Start Server ONLY after DB connects
 mongoose.connect(process.env.DB_LOCATION, {
   useNewUrlParser: true,
