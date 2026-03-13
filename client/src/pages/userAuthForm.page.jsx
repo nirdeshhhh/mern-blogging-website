@@ -4,7 +4,7 @@ import AnimationWrapper from "../common/page-animation";
 import { Link } from "react-router-dom";
 import InputBox from "../components/input.component";
 import googleIcon from "../imgs/google.png";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 import { storeInSession } from "../common/session";
 import { UserContext } from "../App";
@@ -30,9 +30,14 @@ const UserAuthForm = ({ type }) => {
             console.log("Response received:", data);
     
             storeInSession("user", JSON.stringify(data));
-            setUserAuth(data);
-    
-            toast.success(type === "sign-in" ? "Login successful!" : "Signup successful!");
+
+            toast.success(type === "sign-in" ? "Login successful!" : "Signup successful!", {
+                duration: 2000
+            });
+
+            setTimeout(() => {
+                setUserAuth(data);
+            }, 1000);
     
         } catch (error) {
             console.error("Error:", error.response?.data || error.message);
@@ -103,7 +108,6 @@ const UserAuthForm = ({ type }) => {
         <Navigate to="/" />
     ) : (
         <AnimationWrapper keyValue={type}>
-            <Toaster position="top-right" />
             <section className="flex justify-center items-center h-screen">
                 <form ref={formRef} onSubmit={handleSubmit} className="w-[80%] max-w-[400px]">
                     <h1 className="text-4xl font-gelasio capitalize text-center mb-6">
