@@ -12,8 +12,6 @@ import userRoutes from "./routes/userRoutes.js";
 import { apiLimiter } from "./middleware/rateLimiter.js";
 
 
-server.use(apiLimiter);
-
 
 dotenv.config();
 
@@ -29,6 +27,7 @@ const PORT = process.env.PORT || 3000;
 // middlewares
 server.use(cors());
 server.use(express.json());
+server.use(apiLimiter);
 
 // routes
 server.use("/", authRoutes);
