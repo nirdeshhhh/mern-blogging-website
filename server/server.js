@@ -25,10 +25,20 @@ const server = express();
 const PORT = process.env.PORT || 3000;
 
 // middlewares
+import cors from "cors";
+
 server.use(cors({
-  origin: true,
+  origin: [
+    "http://localhost:5173",
+    "https://mern-blogging-website-production-10f9.up.railway.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
+
+server.options("*", cors());
+
 server.use(express.json());
 server.use(apiLimiter);
 
