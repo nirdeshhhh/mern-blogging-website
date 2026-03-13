@@ -108,7 +108,7 @@ const Navbar = () => {
               {/* User Section */}
               {isLoggedIn ? (
                 <>
-                 <Link to="/dashboard/notification">
+                 <Link to="/notifications">
                   <div className="relative">
                     <button className="w-14 h-14 rounded-full bg-gray-300 bg-opacity-20 hover:bg-opacity-30 flex items-center justify-center transition">
                       <i className="fi fi-rr-bell text-base text-gray-700"></i> {/* Changed text-lg ➔ text-base */}

@@ -35,6 +35,8 @@ server.use("/", uploadRoutes);
 server.use("/", blogRoutes);
 server.use("/", commentRoutes);
 server.use("/", userRoutes);
+server.use("/", notificationRoutes);
+
 
 // MongoDB connection
 mongoose

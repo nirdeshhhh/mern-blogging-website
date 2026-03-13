@@ -11,6 +11,7 @@ import ProfilePage from "./pages/profile.page";
 import BlogPage from "./pages/blog.page";
 // const fileUpload = require('express-fileupload');
 import { Toaster } from "react-hot-toast";
+import NotificationsPage from "./pages/notifications.page";
 
 export const UserContext = createContext({});
 
@@ -51,6 +52,7 @@ const App = () => {
                     <Route path="search/:query" element={<SearchPage/>}/>
                     <Route path="user/:id" element={<ProfilePage/>}/>
                     <Route path="blog/:blog_id" element={<BlogPage/>} />
+                    <Route path="/notifications" element={<NotificationsPage />} />
                     <Route path="*" element={<PageNotFound/>}/>
                 </Route>
             </Routes>
