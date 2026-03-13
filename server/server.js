@@ -25,7 +25,10 @@ const server = express();
 const PORT = process.env.PORT || 3000;
 
 // middlewares
-server.use(cors());
+server.use(cors({
+  origin: true,
+  credentials: true
+}));
 server.use(express.json());
 server.use(apiLimiter);
 
