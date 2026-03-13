@@ -9,6 +9,11 @@ import uploadRoutes from "./routes/uploadRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import commentRoutes from "./routes/commentRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import { apiLimiter } from "./middleware/rateLimiter.js";
+
+
+server.use(apiLimiter);
+
 
 dotenv.config();
 
@@ -49,6 +54,16 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err.message);
   });
+
+
+server.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    uptime: process.uptime(),
+    timestamp: Date.now()
+  });
+});
+
 
 // test route
 server.get("/", (req, res) => {

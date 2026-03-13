@@ -1,5 +1,5 @@
 import { useContext, useState, useRef } from "react";
-import { Navigate } from "react-router-dom"; // Import Navigate
+import { Navigate, useNavigate } from "react-router-dom"; // Import Navigate
 import AnimationWrapper from "../common/page-animation";
 import { Link } from "react-router-dom";
 import InputBox from "../components/input.component";
