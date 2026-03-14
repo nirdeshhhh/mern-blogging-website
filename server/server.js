@@ -22,7 +22,7 @@ dotenv.config();
 
 const server = express();
 const PORT = process.env.PORT || 3000;
-
+server.set("trust proxy", 1);
 // middlewares
 
 const corsOptions = {
